@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace RockPaperScissorsLizardSpock
 {
-    class Program
+    class Computer : Player
     {
-        static void Main(string[] args)
+        public Computer()
         {
-            Game game = new Game();
+
         }
     }
 }

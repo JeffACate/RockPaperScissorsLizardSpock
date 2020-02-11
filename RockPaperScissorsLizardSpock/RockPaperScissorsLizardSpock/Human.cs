@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace RockPaperScissorsLizardSpock
 {
-    class Program
+    class Human : Player
     {
-        static void Main(string[] args)
+        public Human(string name)
+            : base(name)
         {
-            Game game = new Game();
+
         }
+        
     }
 }
