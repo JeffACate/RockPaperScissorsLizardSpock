@@ -8,9 +8,16 @@ namespace RockPaperScissorsLizardSpock
 {
     class Computer : Player
     {
+        Random rng;
         public Computer()
         {
-
+            name = "Computer";
+            score = 0;
+            rng = new Random();
+        }
+        public override void ChooseMove()
+        {
+            move = rng.Next(0, 5);
         }
     }
 }

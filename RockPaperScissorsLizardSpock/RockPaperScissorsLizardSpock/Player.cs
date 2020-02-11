@@ -6,21 +6,12 @@ using System.Threading.Tasks;
 
 namespace RockPaperScissorsLizardSpock
 {
-    class Player
+    abstract class Player
     {
         public int score;
         public string name;
-
-        public Player()
-        {
-            name = "Computer";
-            score = 0;
-        }
-        public Player(string name)
-        {
-            this.name = name;
-            score = 0;
-        }
+        public int move;
         
+        public abstract void ChooseMove();
     }
 }

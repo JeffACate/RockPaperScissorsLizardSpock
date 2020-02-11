@@ -8,11 +8,12 @@ namespace RockPaperScissorsLizardSpock
 {
     class Game
     {
-        public List<string> gestures;
+        public static List<string> gestures;
 
         public Game()
         {
             gestures = new List<string> { "rock", "paper","scissors", "lizard", "spock" };
         }
+
     }
 }
