@@ -10,16 +10,42 @@ namespace RockPaperScissorsLizardSpock
     {
         Player player1;
         Player player2;
-
         Random rng;
+        int round = 1;
+        bool winner = false;
+        int p1win = 0;
+        int p2win = 0;
         public Game()
         {
             rng = new Random();
             DisplayRules();
             SetPlayers();
-            player1.ChooseGesture();
-            player2.ChooseGesture();
-            Console.ReadKey();
+            while (true)
+            
+            {
+                while (winner == false)
+                {
+                    player1.ChooseGesture();
+                    Console.WriteLine("Round {0}  | Player 1: {1} | Player 2: {2}\n", round, player1.score, player2.score);
+                    Console.WriteLine("player 1 chose: {0}", player1.gesture);
+                    player2.ChooseGesture();
+                    Console.WriteLine("player 2 chose: {0}", player2.gesture);
+                    CompareChoices();
+                    winner = CheckGameWinner();
+
+                    round++;
+                    Console.WriteLine();
+                    
+                 }
+
+                player1.score = 0;
+                player2.score = 0;
+                Console.WriteLine("player 1 won {0} games | player 2 won {1} games", p1win, p2win);
+                winner = false;
+                round = 0;
+                Console.ReadKey();
+
+            }
 
         }
 
@@ -54,7 +80,8 @@ namespace RockPaperScissorsLizardSpock
         {
             Console.Write("How many players are playing? ");
             bool invalidInput = true;
-            char players = Console.ReadKey().KeyChar;
+            char players = '0';
+            //char players = Console.ReadKey().KeyChar;
             Console.WriteLine();
             while (invalidInput)
             {
@@ -92,7 +119,72 @@ namespace RockPaperScissorsLizardSpock
                 break;
             }
         }
-        
+        void CompareChoices()
+        {
+            
+            //Rock
+            if(player1.gesture == "rock" && (player2.gesture == "scissors" || player2.gesture == "lizard"))
+            {
+                Console.WriteLine("Player 1 wins this round!!");
+                player1.score++;
+            }
+            //Paper
+            else if (player1.gesture == "paper" && (player2.gesture == "spock" || player2.gesture == "rock"))
+            {
+                Console.WriteLine("Player 1 wins this round!!");
+                player1.score++;
+            }
+            //Scissors
+            else if (player1.gesture == "scissors" && (player2.gesture == "paper" || player2.gesture == "lizard"))
+            {
+                Console.WriteLine("Player 1 wins this round!!");
+                player1.score++;
+            }
+            //Lizard
+            else if (player1.gesture == "lizard" && (player2.gesture == "spock" || player2.gesture == "paper"))
+            {
+                Console.WriteLine("Player 1 wins this round!!");
+                player1.score++;
+            }
+            //Spock
+            else if (player1.gesture == "spock" && (player2.gesture == "rock" || player2.gesture == "scissors"))
+            {
+                Console.WriteLine("Player 1 wins this round!!");
+                player1.score++;
+            }
+            //tie
+            else if (player1.gesture == player2.gesture)
+            {
+                Console.WriteLine("Tie");
+            }
+            else
+            {
+                Console.WriteLine("Player 2 wins this round!!");
+                player2.score++;
+            }
+
+
+        }
+
+        bool CheckGameWinner()
+        {
+            if (player1.score == 3)
+            {
+                Console.WriteLine("Player 1 wins the Game5");
+                Console.WriteLine("Round {0}  | Player 1: {1} | Player 2: {2}\n", round, player1.score, player2.score);
+                p1win++;
+                return true;
+            }
+            else if (player2.score == 3)
+            {
+                Console.WriteLine("Player 2 wins the Game ");
+                Console.WriteLine("Player 1: {1} | Player 2: {2}\n", round, player1.score, player2.score);
+
+                p2win++;
+                return true;
+            }
+            return false;
+        }
 
     }
 }

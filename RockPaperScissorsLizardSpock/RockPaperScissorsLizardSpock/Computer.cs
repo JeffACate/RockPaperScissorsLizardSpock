@@ -8,18 +8,18 @@ namespace RockPaperScissorsLizardSpock
 {
     class Computer : Player
     {
-        List<string> gestures;
         Random rng;
     public Computer(Random rng)
         {
             name = "Computer";
             score = 0;
-            gestures = new List<string> { "rock", "paper", "scissors", "lizard", "spock" };
+            
             this.rng = rng;
         }
         public override void ChooseGesture()
         {
-            gesture = rng.Next(0, 5);
+            int choice = rng.Next(0, 5);
+            gesture = gestures[choice];
         }
     }
 }

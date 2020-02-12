@@ -12,7 +12,6 @@ namespace RockPaperScissorsLizardSpock
         {
             this.name = name;
             score = 0;
-            gestures = new List<string> { "rock", "paper", "scissors", "lizard", "spock" };
         }
         void DisplayOptions()
         {
@@ -50,19 +49,19 @@ namespace RockPaperScissorsLizardSpock
             switch (choice)
             {
                 case '0':
-                    gesture = 0;
+                    gesture = gestures[choice];
                     break;
                 case '1':
-                    gesture = 1;
+                    gesture = gestures[choice];
                     break;
                 case '2':
-                    gesture = 2;
+                    gesture = gestures[choice];
                     break;
                 case '3':
-                    gesture = 3;
+                    gesture = gestures[choice];
                     break;
                 case '4':
-                    gesture = 4;
+                    gesture = gestures[choice];
                     break;
             }
         }
