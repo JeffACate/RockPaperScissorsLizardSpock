@@ -10,8 +10,13 @@ namespace RockPaperScissorsLizardSpock
     {
         public int score;
         public string name;
-        public int move;
+        public int gesture;
         
-        public abstract void ChooseMove();
+        public abstract void ChooseGesture();
+
+        void SetPlayers()
+        {
+
+        }
     }
 }

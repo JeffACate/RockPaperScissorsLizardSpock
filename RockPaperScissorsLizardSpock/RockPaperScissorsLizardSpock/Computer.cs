@@ -15,9 +15,9 @@ namespace RockPaperScissorsLizardSpock
             score = 0;
             rng = new Random();
         }
-        public override void ChooseMove()
+        public override void ChooseGesture()
         {
-            move = rng.Next(0, 5);
+            gesture = rng.Next(0, 5);
         }
     }
 }

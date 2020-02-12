@@ -8,11 +8,19 @@ namespace RockPaperScissorsLizardSpock
 {
     class Game
     {
-        public static List<string> gestures;
+        List<string> gestures;
 
         public Game()
         {
             gestures = new List<string> { "rock", "paper","scissors", "lizard", "spock" };
+        }
+
+        void displayOptions()
+        {
+            for (int i = 0; i < gestures.Count; i++)
+            {
+                Console.WriteLine("{0}) {1} ", i, gestures[i]);
+            }
         }
 
     }
