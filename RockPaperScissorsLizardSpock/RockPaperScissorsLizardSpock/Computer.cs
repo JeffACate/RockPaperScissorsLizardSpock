@@ -8,14 +8,14 @@ namespace RockPaperScissorsLizardSpock
 {
     class Computer : Player
     {
-        Random rng;
         List<string> gestures;
-    public Computer()
+        Random rng;
+    public Computer(Random rng)
         {
             name = "Computer";
             score = 0;
-            rng = new Random();
             gestures = new List<string> { "rock", "paper", "scissors", "lizard", "spock" };
+            this.rng = rng;
         }
         public override void ChooseGesture()
         {

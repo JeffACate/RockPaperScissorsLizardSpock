@@ -15,9 +15,5 @@ namespace RockPaperScissorsLizardSpock
 
         public abstract void ChooseGesture();
 
-        void SetPlayers()
-        {
-
-        }
     }
 }

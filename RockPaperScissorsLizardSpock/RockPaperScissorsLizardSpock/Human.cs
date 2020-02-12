@@ -26,6 +26,7 @@ namespace RockPaperScissorsLizardSpock
         {
             bool invalidInput = true;
             char choice = '9';
+            DisplayOptions();
             while (invalidInput)
             {
                 Console.Write("Please choose a gesture: ");
@@ -43,6 +44,7 @@ namespace RockPaperScissorsLizardSpock
                 else
                 {
                     Console.WriteLine("Invalid Choice");
+                    DisplayOptions();
                 }
             }
             switch (choice)
