@@ -12,6 +12,15 @@ namespace RockPaperScissorsLizardSpock
         {
             this.name = name;
             score = 0;
+            gestures = new List<string> { "rock", "paper", "scissors", "lizard", "spock" };
+        }
+        void DisplayOptions()
+        {
+            Console.WriteLine("Gestures(0 - 4): ");
+            for (int i = 0; i < gestures.Count; i++)
+            {
+                Console.WriteLine("     {0} = {1} ", i, gestures[i]);
+            }
         }
         public override void ChooseGesture()
         {
@@ -19,7 +28,7 @@ namespace RockPaperScissorsLizardSpock
             char choice = '9';
             while (invalidInput)
             {
-                Console.WriteLine("Please choose a gesture: ");
+                Console.Write("Please choose a gesture: ");
                 choice = Console.ReadKey().KeyChar;
 
                 Console.WriteLine();

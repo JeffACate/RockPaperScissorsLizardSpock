@@ -9,11 +9,13 @@ namespace RockPaperScissorsLizardSpock
     class Computer : Player
     {
         Random rng;
-        public Computer()
+        List<string> gestures;
+    public Computer()
         {
             name = "Computer";
             score = 0;
             rng = new Random();
+            gestures = new List<string> { "rock", "paper", "scissors", "lizard", "spock" };
         }
         public override void ChooseGesture()
         {

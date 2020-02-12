@@ -8,20 +8,44 @@ namespace RockPaperScissorsLizardSpock
 {
     class Game
     {
-        List<string> gestures;
-
+        Player player1;
+        Player player2;
         public Game()
         {
-            gestures = new List<string> { "rock", "paper","scissors", "lizard", "spock" };
+
+            DisplayRules();
+            Console.ReadKey();
+
         }
 
-        void displayOptions()
+        void DisplayRules()
         {
-            for (int i = 0; i < gestures.Count; i++)
-            {
-                Console.WriteLine("{0}) {1} ", i, gestures[i]);
-            }
+            Console.WriteLine("Welcome to Rock Paper Scissors Lizard Spock!!"    + "\n" +
+                              "These Are the rules to the game:\n");
+            Console.WriteLine(
+                              "     +-------------------------------------+"    + "\n" +
+                              "     | Rock      | crushes     |  Scissors |"    + "\n" +
+                              "     |-----------|-------------|-----------|"    + "\n" +
+                              "     | Scissors  | cuts        |  Paper    |"    + "\n" +
+                              "     |-----------|-------------|-----------|"    + "\n" +
+                              "     | Paper     | covers      |  Rock     |"    + "\n" +
+                              "     |-----------|-------------|-----------|"    + "\n" +    
+                              "     |  Rock     | crushes     |  Lizard   |"    + "\n" +
+                              "     |-----------|-------------|-----------|"    + "\n" +
+                              "     |  Lizard   | poisons     |  Spock    |"    + "\n" +
+                              "     |-----------|-------------|-----------|"    + "\n" +
+                              "     |  Spock    | smashes     |  Scissors |"    + "\n" +
+                              "     |-----------|-------------|-----------|"    + "\n" +
+                              "     |  Scissors | decapitates |  Lizard   |"    + "\n" +
+                              "     |-----------|-------------|-----------|"    + "\n" +
+                              "     |  Lizard   | eats        |  Paper    |"    + "\n" +
+                              "     |-----------|-------------|-----------|"    + "\n" +
+                              "     |  Paper    | disproves   |  Spock    |"    + "\n" +
+                              "     |-----------|-------------|-----------|"    + "\n" +
+                              "     |  Spock    | vaporizes   |  Rock     |"    + "\n" +
+                              "     +-------------------------------------+"    + "\n" );
         }
+        
 
     }
 }
