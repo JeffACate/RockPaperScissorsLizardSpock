@@ -11,39 +11,37 @@ namespace RockPaperScissorsLizardSpock
         Player player1;
         Player player2;
         Random rng;
-        int round = 1;
+        int round = 0;
         bool winner = false;
         int p1win = 0;
         int p2win = 0;
+        bool playAgain = true;
         public Game()
         {
             rng = new Random();
             DisplayRules();
             SetPlayers();
-            while (true)
+            while (playAgain == true)
             
             {
                 while (winner == false)
                 {
+
+                    round++;
                     player1.ChooseGesture();
                     Console.WriteLine("Round {0}  | Player 1: {1} | Player 2: {2}\n", round, player1.score, player2.score);
                     Console.WriteLine("player 1 chose: {0}", player1.gesture);
                     player2.ChooseGesture();
                     Console.WriteLine("player 2 chose: {0}", player2.gesture);
                     CompareChoices();
-                    winner = CheckGameWinner();
 
-                    round++;
+                    winner = CheckGameWinner();
                     Console.WriteLine();
                     
                  }
 
-                player1.score = 0;
-                player2.score = 0;
-                Console.WriteLine("player 1 won {0} games | player 2 won {1} games", p1win, p2win);
-                winner = false;
-                round = 0;
-                Console.ReadKey();
+                playAgain = AskPlayAgain();
+                
 
             }
 
@@ -168,23 +166,57 @@ namespace RockPaperScissorsLizardSpock
 
         bool CheckGameWinner()
         {
-            if (player1.score == 3)
+            if (player1.score == 2)
             {
+                p1win++;
                 Console.WriteLine("Player 1 wins the Game5");
                 Console.WriteLine("Round {0}  | Player 1: {1} | Player 2: {2}\n", round, player1.score, player2.score);
-                p1win++;
+                Console.WriteLine("player 1 won {0} games | player 2 won {1} games", p1win, p2win);
                 return true;
             }
-            else if (player2.score == 3)
+            else if (player2.score == 2)
             {
+                p2win++;
                 Console.WriteLine("Player 2 wins the Game ");
                 Console.WriteLine("Player 1: {1} | Player 2: {2}\n", round, player1.score, player2.score);
+                Console.WriteLine("player 1 won {0} games | player 2 won {1} games", p1win, p2win);
 
-                p2win++;
                 return true;
             }
             return false;
         }
+
+        bool AskPlayAgain()
+        {
+            bool validInput = false;
+            char choice = '1';
+            while (validInput == false)
+            {
+
+                Console.Write("Would you like to play again? ");
+                choice = Console.ReadKey().KeyChar;
+                if (choice == 'y' || choice == 'Y' || choice == 'n' || choice == 'N')
+                {
+                    validInput = true;
+                }
+                Console.WriteLine();
+            }
+            switch (choice)
+            {
+
+                case 'y':
+                case 'Y':
+                    player1.score = 0;
+                    player2.score = 0;
+                    winner = false;
+                    round = 0;
+                    return true;
+            }
+            return false;
+
+        }
+
+
 
     }
 }
