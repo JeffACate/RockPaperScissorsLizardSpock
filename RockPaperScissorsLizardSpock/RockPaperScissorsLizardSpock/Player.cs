@@ -10,7 +10,7 @@ namespace RockPaperScissorsLizardSpock
     {
         public int score;
         public string name;
-        public string gesture;
+        public string gesture; 
         public List<string> gestures = new List<string> { "rock", "paper", "scissors", "lizard", "spock" };
 
         public abstract void ChooseGesture();

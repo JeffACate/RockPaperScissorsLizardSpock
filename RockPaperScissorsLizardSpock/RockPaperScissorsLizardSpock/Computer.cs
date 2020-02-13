@@ -9,7 +9,7 @@ namespace RockPaperScissorsLizardSpock
     class Computer : Player
     {
         Random rng;
-    public Computer(Random rng)
+        public Computer(Random rng)
         {
             name = "Computer";
             score = 0;
