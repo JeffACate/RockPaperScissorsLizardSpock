@@ -15,10 +15,10 @@ namespace RockPaperScissorsLizardSpock
         }
         void DisplayOptions()
         {
-            Console.WriteLine("Gestures(0 - 4): ");
+            Console.WriteLine("     Gestures(0 - 4): ");
             for (int i = 0; i < gestures.Count; i++)
             {
-                Console.WriteLine("     {0} = {1} ", i, gestures[i]);
+                Console.WriteLine("          {0} = {1} ", i, gestures[i]);
             }
         }
         public override void ChooseGesture()
@@ -28,7 +28,7 @@ namespace RockPaperScissorsLizardSpock
             DisplayOptions();
             while (invalidInput)
             {
-                Console.Write("Please choose a gesture: ");
+                Console.Write($"     {name} Please choose a gesture: ");
                 choice = Console.ReadKey().KeyChar - '0' ;
 
                 Console.WriteLine();
@@ -42,7 +42,7 @@ namespace RockPaperScissorsLizardSpock
                 }
                 else
                 {
-                    Console.WriteLine("Invalid Choice");
+                    Console.WriteLine("     Invalid Choice");
                     DisplayOptions();
                 }
 
